@@ -1,8 +1,13 @@
 @import "./_common/_common"
 html
 	font-size: 16px
+	+font('Ubuntu-R')
 body
 	margin: 0
-	+font('Ubuntu-R')
+	@each $key,$value in $theme
+		$i: index($theme, ($key $value))
+		&.theme_#{$i}
+			background-color: $value
+			background-image: url('./pictures/#{map-get($theme_image, $key)}')
 *
 	box-sizing: border-box

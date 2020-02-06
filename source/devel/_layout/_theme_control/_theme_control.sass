@@ -1,0 +1,18 @@
+.themes
+	padding: 10px
+	display: inline-block
+	background-color: rgba(#000000, 0.7)
+	position: fixed
+	top: 50%
+	left: 0
+	transform: translateY(-50%)
+.themes__
+	width: 40px
+	height: 40px
+	cursor: pointer
+.themes__theme_
+	@each $key,$value in $theme
+		$i: index($theme, ($key $value))
+		&#{$i}
+			background-color: $value
+			background-image: url('./pictures/#{map-get($theme_image, $key)}')

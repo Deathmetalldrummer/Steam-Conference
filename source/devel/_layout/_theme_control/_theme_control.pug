@@ -1,0 +1,4 @@
+mixin themes()
+	.themes
+		each key,value in [1,2,3,4,5,6,7,8]
+			.themes__(class='themes__theme_'+key data-theme=key)= key
