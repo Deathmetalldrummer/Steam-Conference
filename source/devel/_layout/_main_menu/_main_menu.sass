@@ -1,0 +1,59 @@
+@import "./_menu_var"
+
+.mainMenu
+	margin: 100px
+	padding: 0 55px 25px
+	background-size: auto 71px
+	@each $key,$value in $menu_images
+		.theme_#{$key} &
+			background: url('./pictures/#{map-get($value, "left")}') top left no-repeat,url('./pictures/#{map-get($value, "right")}') top right no-repeat
+.mainMenu__list
+	list-style: none
+	padding: 0
+	margin: 0
+	display: flex
+	justify-content: space-between
+	flex-flow: row nowrap
+	box-shadow: 0 12px 12px -10px rgba(0, 0, 0, 0.6)
+	background-size: contain
+	background-position: center
+	background-repeat: repeat-x
+	@each $key,$value in $menu_images
+		.theme_#{$key} &
+			background-image: url('./pictures/#{map-get($value, "center")}')
+.mainMenu__
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	text-align: center
+	text-transform: uppercase
+	flex-grow: 1
+	flex-shrink: 1
+	padding: 12px 10px
+	line-height: 1
+	cursor: pointer
+	transition-delay: 0.3s
+	text-shadow: 0 1px 0 rgba(255,255,255,0.3)
+	@each $key,$value in $menu_text
+		.theme_#{$key} &
+			color: map-get($value, 'color')
+		.theme_#{$key} &:hover
+			color: map-get($value, 'hover')
+		.theme_#{$key} &item_active
+			color: map-get($value, 'active')
+	&+&
+		background: url('./pictures/menu_border.png') left center no-repeat
+		background-size: auto cover
+.mainMenu__icon
+	width: 25px
+	height: 25px
+	margin-right: 8px
+.mainMenu__titlePosition
+	&_align
+		text-align: left
+.mainMenu__title
+	font-size: 16px
+	line-height: 1
+.mainMenu__subtitle
+	line-height: 1
+	font-size: 10px

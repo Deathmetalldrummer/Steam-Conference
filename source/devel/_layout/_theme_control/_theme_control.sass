@@ -12,7 +12,6 @@
 	cursor: pointer
 .themes__theme_
 	@each $key,$value in $theme
-		$i: index($theme, ($key $value))
-		&#{$i}
+		&#{$key}
 			background-color: $value
 			background-image: url('./pictures/#{map-get($theme_image, $key)}')

@@ -1,0 +1,16 @@
+- var menu=[{title:"Home",subtitle:null,icon:null},{title:"Features",subtitle:null,icon:null},{title:"widgetkit",subtitle:null,icon:null},{title:"Icons",subtitle:null,icon:null},{title:"Joomla",subtitle:'Subtitle position',icon:{src: "joomla.svg",alt: "joomla"}},{title:"Login",subtitle:'Speak, friend, and enter',icon:null}];
+mixin mainMenu()
+	nav.mainMenu
+		ul.mainMenu__list
+			each item,i in menu
+				li.mainMenu__(class=(i === 0) ? 'mainMenu__item_active':'')
+					if item.icon
+						.mainMenu__icon
+							img(src="./pictures/"+item.icon.src alt=item.icon.alt)
+					.mainMenu__titlePosition(class=(item.icon || item.subtitle) ? 'mainMenu__titlePosition_align': '')
+						.mainMenu__title
+							if item.title
+								span= item.title
+						.mainMenu__subtitle
+							if item.subtitle
+								span= item.subtitle

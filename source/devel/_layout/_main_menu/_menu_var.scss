@@ -1,0 +1,59 @@
+$menu_images: ();
+@each $key, $value in $theme {
+	$menu_images: map-merge($menu_images, ($key: (
+		"left": 'menubar_themes/theme_#{$key}_left.png',
+		"center": 'menubar_themes/theme_#{$key}_center.png',
+		"right": 'menubar_themes/theme_#{$key}_right.png'
+	)));
+}
+
+$menu_text: (
+	1: (
+		"color": #A5481F,
+		"hover": #F36523,
+		"active": #471600,
+		"font": "Kreon"
+		),
+	2: (
+		"color": #666,
+		"hover": #fff,
+		"active": #212121,
+		"font": Arial
+		),
+	3: (
+		"color": #7F8962,
+		"hover": #57851F,
+		"active": #4D5D35,
+		"font": "Kreon"
+		),
+	4: (
+		"color": #C8C8C8,
+		"hover": #fff,
+		"active": #E23487,
+		"font": Arial
+		),
+	5: (
+		"color": #2879B1,
+		"hover": #339FE8,
+		"active": #17496B,
+		"font": Arial
+		),
+	6: (
+		"color": #C6C5B9,
+		"hover": #EE8562,
+		"active": #FFFDF3,
+		"font": Arial
+		),
+	7: (
+		"color": #C85B53,
+		"hover": #ee3056,
+		"active": #580012,
+		"font": Arial
+		),
+	8: (
+		"color": #93C5E1,
+		"hover": #B4F7FF,
+		"active": #fff,
+		"font": Arial
+		)
+)
