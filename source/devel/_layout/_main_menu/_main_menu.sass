@@ -37,6 +37,7 @@
 	@each $key,$value in $menu_text
 		.theme_#{$key} &
 			color: map-get($value, 'color')
+			font-family: map-get($value, 'font')
 		.theme_#{$key} &:hover
 			color: map-get($value, 'hover')
 		.theme_#{$key} &item_active
