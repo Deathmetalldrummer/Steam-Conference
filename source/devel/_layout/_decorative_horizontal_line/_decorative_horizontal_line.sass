@@ -1,0 +1,49 @@
+@import "./_decorative_horizontal_line_var"
+
+.DHL
+	font-size: 1rem
+	display: flex
+	flex-flow: row nowrap
+	justify-content: center
+	align-items: center
+	&:before,
+	&:after
+		content: ''
+		display: block
+		height: 2px
+		flex-grow: 1
+		@each $key,$value in $hr
+			.theme_#{$key} &
+					background-image: linear-gradient(to bottom, map-get($value, 'lineColor'))
+
+.DHL__
+	margin: 10px
+.DHL__stars
+	@each $key,$value in $hr
+		.theme_#{$key} &
+			content: url('./pictures/' + map-get($value, 'star'))
+.DHL__text
+	line-height: 1.7
+	text-align: center
+	text-transform: uppercase
+	@each $key,$value in $hr
+		.theme_#{$key} &
+			@if $key == 6
+				text-transform: none
+			color: map-get($value, 'color')
+			font-family: map-get($value, 'font')
+			text-shadow: map-get($value, 'textShadow')
+.DHL__toTop
+	// TODO: need refactoring
+	cursor: pointer
+	display: inline-block
+	width: 26px
+	height: 36px
+	overflow: hidden
+	&:hover:before
+		position: relative
+		top: -40px
+	@each $key,$value in $hr
+		.theme_#{$key} &:before
+			display: block
+			content: url('./pictures/' + map-get($value, 'scroller'))

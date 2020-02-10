@@ -64,3 +64,12 @@
 
 			@media(min-width: floor($media_width) + px)
 				font-size: $coef_round + em
+
+
+
+@function em($px, $fontSize: $defaultFontSize)
+	@if (unitless($px))
+		$px: $px * 1px
+	@if (unitless($fontSize))
+		$fontSize: $fontSize * 1px
+	@return $px / $fontSize * 1em

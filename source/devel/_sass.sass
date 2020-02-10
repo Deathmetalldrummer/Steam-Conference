@@ -17,13 +17,27 @@
 // +font("TrebuchetMS-Bold")
 // +font("TrebuchetMS-Italic")
 
++font("GearedSlab", $fileName: 'gearedslab')
+// +font("gearedslab-light")
+// +font("gearedslab-bold")
+// +font("gearedslab-extrabold")
+
++font("liberator")
+
++font("lobster")
+
++font("Philosopher", $fileName: "philosopher-regular")
+// +font("philosopher-bold")
+// +font("philosopher-bolditalic")
+// +font("philosopher-italic")
+
+
 html
-	font-size: 16px
+	font-size: $defaultFontSize
 body
 	margin: 0
 	@each $key,$value in $theme
-		$i: index($theme, ($key $value))
-		&.theme_#{$i}
+		&.theme_#{$key}
 			background-color: $value
 			background-image: url('./pictures/#{map-get($theme_image, $key)}')
 *

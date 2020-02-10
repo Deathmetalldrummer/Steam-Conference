@@ -1,0 +1,8 @@
+mixin DHL(type, text= false)
+	.DHL
+		if type === 'stars'
+			.DHL__.DHL__stars
+		if type === 'text'
+			.DHL__.DHL__text= text
+		if type === 'to top'
+			a(href="#top").DHL__.DHL__toTop

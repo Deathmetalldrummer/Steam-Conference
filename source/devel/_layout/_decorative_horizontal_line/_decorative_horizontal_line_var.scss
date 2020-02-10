@@ -1,0 +1,75 @@
+// 1_ a83500 45% ffeba3 15%
+// 2_ 000 20% FFF 4%
+// 3_ 4c6134 20% faffe6 17%
+// 4_ 000 10% FFF 50%
+// 5_ 2470a8 38% cae9ff 17%
+// 6_ 999385 20% fffaec 40%
+// 7_ 8d3344 38% ffb696 21%
+// 8_ 049fd2 25% dbfdff 40%
+
+$hr: (
+	1: (
+		"color": #A33200,
+		"textShadow": 0 1px 0 rgba(255,255,255,0.15),
+		"font": ("liberator", sans-serif),
+		"lineColor": (rgba(#a83500, 0.45), rgba(#ffeba3, 0.15)),
+		"star":	"stars/line_stars_1.png",
+		"scroller": "toTop/totop_scroller_1.png"
+	),
+	2: (
+		"color": #000,
+		"textShadow": 0 1px 0 rgba(255,255,255,0.08),
+		"font": ("GearedSlab", sans-serif),
+		"lineColor": (rgba(#000, 0.2), rgba(#fff, 0.04)),
+		"star":	"stars/line_stars_2.png",
+		"scroller": "toTop/totop_scroller_2.png"
+	),
+	3: (
+		"color": #606E45,
+		"textShadow": 0 1px 0 rgba(255,255,255,0.2),
+		"font": ("liberator", sans-serif),
+		"lineColor": (rgba(#4c6134, 0.2), rgba(#faffe6, 0.17)),
+		"star":	"stars/line_stars_3.png",
+		"scroller": "toTop/totop_scroller_3.png"
+	),
+	4: (
+		"color": #999,
+		"textShadow": 0 1px 0 rgba(255,255,255,0.7),
+		"font": ("liberator", sans-serif),
+		"lineColor": (rgba(#000, 0.1), rgba(#fff, 0.5)),
+		"star":	"stars/line_stars_4.png",
+		"scroller": "toTop/totop_scroller_4.png"
+	),
+	5: (
+		"color": #0061A4,
+		"textShadow": 0 1px 0 rgba(255,255,255,0.2),
+		"font": ("Kreon", sans-serif),
+		"lineColor": (rgba(#2470a8, 0.38), rgba(#cae9ff, 0.17)),
+		"star":	"stars/line_stars_5.png",
+		"scroller": "toTop/totop_scroller_5.png"
+	),
+	6: (
+		"color": #B0A88C,
+		"textShadow": 0 1px 0 rgba(255,255,255,0.7),
+		"font": ("lobster", sans-serif),
+		"lineColor": (rgba(#999385, 0.2), rgba(#fffaec, 0.4)),
+		"star":	"stars/line_stars_6.png",
+		"scroller": "toTop/totop_scroller_6.png"
+	),
+	7: (
+		"color": #A72337,
+		"textShadow": 0 1px 0 rgba(255,255,255,0.2),
+		"font": ('Philosopher', sans-serif),
+		"lineColor": (rgba(#8d3344, 0.38), rgba(#ffb696, 0.21)),
+		"star":	"stars/line_stars_7.png",
+		"scroller": "toTop/totop_scroller_7.png"
+	),
+	8: (
+		"color": #5DACC3,
+		"textShadow": 0 1px 0 rgba(255,255,255,0.2),
+		"font": ("liberator", sans-serif),
+		"lineColor": (rgba(#049fd2, 0.25), rgba(#dbfdff, 0.40)),
+		"star":	"stars/line_stars_8.png",
+		"scroller": "toTop/totop_scroller_8.png"
+	),
+);
