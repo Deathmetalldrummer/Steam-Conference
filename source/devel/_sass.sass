@@ -31,6 +31,9 @@
 // +font("philosopher-bolditalic")
 // +font("philosopher-italic")
 
+$bg_texture_width: 90vw
+$bg_texture_height: ($bg_texture_width / 1.33)
+$bg_texture_pos: $bg_texture_height / -2
 
 html
 	font-size: $defaultFontSize
@@ -38,7 +41,16 @@ body
 	margin: 0
 	@each $key,$value in $theme
 		&.theme_#{$key}
+			// TODO: need refactoring
+			$texture: none
+			$texture_size: auto
+			$texture2: url('./pictures/texture/#{$key}_page_gradient_dark.svg') 50% 0 fixed no-repeat
+			$texture2_size: 210% 400%
+			@if ($key == 7 or $key == 5)
+				$texture: url('./pictures/texture/#{$key}_page_texture.png') top center no-repeat
+				$texture_size: auto
 			background-color: $value
-			background-image: url('./pictures/#{map-get($theme_image, $key)}')
+			background: $texture,$texture2, url('./pictures/texture/#{$key}_page_gradient_light.svg') center $bg_texture_pos no-repeat , url('./pictures/#{map-get($theme_image, $key)}') center center repeat
+			background-size: $texture_size,$texture2_size, $bg_texture_width $bg_texture_height, auto
 *
 	box-sizing: border-box
