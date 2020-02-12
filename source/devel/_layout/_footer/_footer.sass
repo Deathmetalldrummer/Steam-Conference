@@ -1,0 +1,43 @@
+@import "./_footer_var"
+.footer
+	margin: 0.5em
+	text-align: center
+	@each $key,$value in $footer
+		.theme_#{$key} &
+			font-family: map-get($value, 'font')
+.footer__menu
+	margin-top: 0
+	margin-bottom: 1em
+
+.footerMenu
+	list-style: none
+	padding: 0
+.footerMenu__item
+	display: inline-block
+	vertical-align: middle
+	&+&
+		margin-left: 0.8em
+.footerMenu__icon
+	height: 0.6em
+	margin-right: 0.5em
+.footerMenu__link
+	text-decoration: none
+	transition-duration: 0.3s
+	@each $key,$value in $footer
+		.theme_#{$key} &
+			color: map-get($value, 'menuLinkColor')
+			fill: map-get($value, 'menuLinkColor')
+			&:hover
+				color: map-get($value, 'menuLinkHover')
+				fill: map-get($value, 'menuLinkHover')
+.footer__info
+	font-size: em(14px)
+	a
+		text-decoration: none
+	@each $key,$value in $footer
+		.theme_#{$key} &
+			color: map-get($value, 'textColor')
+			a
+				color: map-get($value, 'linkColor')
+				&:hover
+					color: map-get($value, 'linkHover')
