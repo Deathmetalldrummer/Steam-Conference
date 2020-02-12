@@ -1,0 +1,11 @@
+$logo_width: em(202px)
+$logo_height: $logo_width
+
+.logo
+	width: $logo_width
+	height: $logo_height
+	background-size: contain
+	margin: 1em em(60px)
+	@each $key in [1,2,3,4,5,6,7,8]
+		.theme_#{$key} &
+			background-image: url('./pictures/logo/logo_#{$key}.png')

@@ -1,0 +1,43 @@
+$social_width: em(68px)
+$social_height: $social_width
+$social_margin: $social_width / 3.4
+.social
+	display: flex
+	justify-content: center
+	align-items: center
+	margin: auto
+	margin: 1em
+.social__:not(.social__content)
+	text-align: center
+	width: $social_width
+	height: $social_height
+	background-repeat: no-repeat
+	background-size: cover
+	background-position-x: center
+	&:first-of-type,
+	&:last-of-type
+		background-size: 134%
+		width: $social_width * 0.75
+		height: $social_height * 0.75
+	@each $key in [1,2,3,4,5,6,7,8]
+		.theme_#{$key} &
+			background-image: url('./pictures/socialIcons/icons_social_#{$key}.png')
+	&+&
+		margin-left: $social_margin
+.social__content
+.social__vimeo
+	background-position-y: 61.6%
+	&:hover
+		background-position-y: 74.3%
+.social__twitter
+	background-position-y: 0
+	&:hover
+		background-position-y: 15.5%
+.social__facebook
+	background-position-y: 30.9%
+	&:hover
+		background-position-y: 46.3%
+.social__google
+	background-position-y: 87.1%
+	&:hover
+		background-position-y: 99.8%
