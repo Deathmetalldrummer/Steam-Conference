@@ -1,0 +1,45 @@
+@import "./_submenuItem_category_var"
+
+.submenuCategory
+	font-style: 1rem
+	padding: em(10px)
+	@each $key,$value in $menu_text
+		.theme_#{$key} &
+			color: map-get($value, 'color')
+			font-family: map-get($value, 'font')
+.submenuCategory__title
+	font-weight: bold
+	font-size: em(14px)
+.submenuCategory__subtitle
+	font-size: em(10px)
+	margin-bottom: em(7px)
+
+
+.submenuCategory__list
+	font-size: em(12px)
+	list-style: none
+	padding: em(2px) 0
+.submenuCategory__item
+.submenuCategory__link
+	display: block
+	padding: em(4px) em(2px)
+	border-radius: em(2px)
+	transition-duration: 0.3s
+	text-decoration: none
+	@each $key,$value in $submenu_category_color
+		.theme_#{$key} &
+			color: map-get($value, 'color')
+			fill: map-get($value, 'color')
+		.theme_#{$key} &:hover
+			color: map-get($value, 'colorHover')
+			fill: map-get($value, 'colorHover')
+			background-color: map-get($value, 'bg')
+		.theme_#{$key} &_active
+			color: map-get($value, 'colorActive')
+			fill: map-get($value, 'colorActive')
+.submenuCategory__icon
+	margin-right: 0.5em
+	svg
+		width: 1em
+		height: 1em
+.submenuCategory__text

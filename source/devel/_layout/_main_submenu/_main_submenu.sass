@@ -1,0 +1,50 @@
+.submenu
+	font-size: 1rem
+	padding: 0
+	margin: 0
+	list-style: none
+	text-align: left
+	border-radius: em(4px)
+	border: em(1px) solid rgba(0,0,0,0.15)
+	box-shadow: em(1px) em(1px) 0 rgba(0,0,0,0.15)
+	background-clip: padding-box
+	position: relative
+	&:before
+		display: inline-block
+		position: absolute
+		left: 50%
+		transform: translateX(-50%)
+		bottom: calc(100% - 3px)
+	@each $key,$value in $menu_text
+		.theme_#{$key} &
+			background: url('./pictures/submenu_themes/dropdown_bg_#{$key}.png')
+			&:before
+				content: url('./pictures/submenu_themes/dropdown_arrow_#{$key}.png')
+.submenu__
+	&+&
+		border-top: em(1px) solid rgba(0,0,0,0.15)
+
+.submenu__default
+.submenu__theme
+.submenu__category
+
+.submenu__link
+	text-decoration: none
+	display: block
+	font-weight: normal
+	font-size: em(14px)
+	padding: em(7px) em(13px)
+	line-height: 1.5
+	transition-duration: 0.3s
+	@each $key,$value in $menu_text
+		.theme_#{$key} &
+			color: map-get($value, 'color')
+			font-family: map-get($value, 'font')
+		.theme_#{$key} &:hover
+			color: map-get($value, 'hover')
+.submenu__icon
+	display: inline-block
+	vertical-align: middle
+.submenu__text
+	display: inline-block
+	vertical-align: middle

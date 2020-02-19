@@ -1,0 +1,18 @@
+=dropdown($parent)
+	#{$parent}:hover
+		.dropdown
+			left: auto
+		.dropdown__content
+			transform: translateY(0)
+
+	.dropdown
+		position: absolute
+		top: 100%
+		overflow: hidden
+		left: -1e5%
+	.dropdown__content
+		min-width: em(225px)
+		transition-duration: 0.3s
+		transform: translateY(-100%)
+		padding-top: 1em
+		box-sizing: border-box

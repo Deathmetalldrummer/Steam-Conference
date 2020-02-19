@@ -1,0 +1,18 @@
+mixin submenu(_submenu)
+	if _submenu.menu && _submenu.type
+		ul.submenu
+			each menu in _submenu.menu
+				if _submenu.type == 'default'
+					li.submenu__.submenu__default
+						a(href=menu.link).submenu__link= menu.text
+				if _submenu.type == 'theme'
+					li.submenu__.submenu__theme
+						a(href=menu.link).submenu__link
+							img(src="./pictures/"+menu.icon, alt="icon").submenu__icon
+							span.submenu__text= menu.text
+				if _submenu.type == 'category'
+					li.submenu__.submenu__category
+						+submenuCategory(menu)
+
+	else
+		| invalid format
