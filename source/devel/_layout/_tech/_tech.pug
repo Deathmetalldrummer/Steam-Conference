@@ -1,0 +1,16 @@
+-
+    var db = [
+        {img: 'html', title: 'HTML5', description: 'Latest HTML5 technologies focusing on mobile device and App development.'},
+        {img: 'css', title: 'CSS3', description: 'The future of animations, transitions, selectors and responsive web design.'},
+        {img: 'js', title: 'JAVASCRIPT', description: 'Libraries, Frameworks, Plugins - how to tune up your website with JavaScript.'},
+        {img: 'design', title: 'WEB DESIGN', description: 'Current design and interface trends and popular, state of the art tools.'},
+    ];
+
+mixin tech()
+    ul.techList
+        each item in db
+            li.techList__item
+                .tech
+                    img.tech__img(alt= item.title, data-src= item.img, src=`./pictures/tech-image/${item.img}_1.png`)
+                    h2.tech__title= item.title
+                    p.tech__desc= item.description

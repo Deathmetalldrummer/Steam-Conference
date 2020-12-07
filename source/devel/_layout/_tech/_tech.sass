@@ -1,0 +1,34 @@
+@import "./_tech_var"
+
+=style($type)
+  @each $key,$value in $tech
+    .theme_#{$key} &
+      color: map-get($value, $type + 'Color')
+      font-family: map-get($value, $type + 'Font')
+      font-size: map-get($value, $type + 'FontSize')
+.techList
+  list-style: none
+  padding: 0
+  margin: 0
+  font-size: 0
+.techList__item
+  display: inline-block
+  vertical-align: top
+  width: 25%
+  font-size: 1rem
+
+.tech
+  text-align: center
+  padding: 1em
+  transition-duration: 0.1s
+  text-shadow: em(1px) em(2px) 0 rgba(88, 23, 8, 0.2)
+
+  &:hover
+    transform: scale(1.1)
+.tech__img
+  max-width: 100%
+.tech__title
+  +style('title')
+  margin: 0.75em 0 0.5em
+.tech__desc
+  +style('desc')

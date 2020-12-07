@@ -6,4 +6,5 @@ $('.themes__').on('click', function(e) {
 		.removeClass('theme_' + $('body').attr('data-theme'))
 		.attr('data-theme', indexTheme)
 		.addClass('theme_' + indexTheme);
-})
+	this.dispatchEvent(new CustomEvent('themeChanged', {detail: {theme: indexTheme}}));
+});
