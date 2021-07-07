@@ -17,13 +17,13 @@
 					background-image: linear-gradient(to bottom, map-get($value, 'lineColor'))
 
 .DHL__
-	margin: 10px
+	margin: 0.5em 0.625em
 .DHL__stars
 	@each $key,$value in $hr
 		.theme_#{$key} &
 			content: url('./pictures/' + map-get($value, 'star'))
 .DHL__text
-	line-height: 1.7
+	line-height: 1.2
 	text-align: center
 	text-transform: uppercase
 	@each $key,$value in $hr
