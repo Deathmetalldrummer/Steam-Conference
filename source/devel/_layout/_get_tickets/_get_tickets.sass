@@ -1,0 +1,122 @@
+$themeKeys: 1, 2, 3, 4, 5, 6, 7, 8
+=getTicketsBoxShadow($color)
+  box-shadow: inset 0 0 0.313em 0.063em rgba($color, 0.2)
+.getTickets
+  font-size: 1rem
+  border-radius: 0.313em
+  padding: 1em 1em 0.6em
+  margin: 0.625em
+  overflow: hidden
+  background-position: 0 0
+  background-repeat: repeat
+  display: flex
+  flex-flow: row nowrap
+  +getTicketsBoxShadow(black)
+  .theme_8 &
+    +getTicketsBoxShadow(#006b8a)
+  @each $key in $themeKeys
+    .theme_#{$key} &
+      background-image: url('./pictures/get_tickets/module_box_#{$key}.jpg')
+      padding-bottom: map-get((2: 0.8em, 5: 0.8em, 7: 0.8em, 8: 0.8em), $key)
+
+.getTickets__header
+  flex-grow: 1
+.getTickets__headerTitle
+  margin: 0
+  @each $key in $themeKeys
+    .theme_#{$key} &
+      color: map-get((1: #FFCC33, 2: #fff, 3: #FCFFCC, 4: #fff, 5: #fff, 6: #FFFDF3, 7: #FFD1B2, 8: #fff), $key)
+      font-family: map-get((1: "Mensch", 2: "Mensch", 3: "Mensch", 4: "Mensch" ,5: "BebasRegular", 6: "BebasRegular", 7: "Ranger", 8: "BebasRegular"), $key), sans-serif
+      font-size: map-get((1: 3.375em, 2: 3.375em, 3: 3.375em, 4: 3.375em, 5: 3.625em, 6: 3.625em, 7: 3.250em, 8: 3.625em), $key)
+      font-weight: map-get((7: 400), $key)
+      margin-bottom: map-get((1: 0.111em, 2: -0.074em, 3: 0.111em, 4: 0.111em, 5: -0.086em, 6: -0.086em, 7: -0.038em, 8: 0.069em), $key)
+
+.getTickets__headerSubtitle
+  margin: 0
+  @each $key in $themeKeys
+    .theme_#{$key} &
+      color: map-get((1: #F36523, 2: #34B2AD, 3: #D8E7A4, 4: #E23487, 5: #CCEBFF, 6: #EE8562, 7: #e9476a, 8: #B0EDFF), $key)
+      font-family: map-get((1: "liberator", 2: "GearedSlab", 3: "liberator", 4: "liberator" ,5: "Kreon", 6: "lobster", 7: "PhilosopherItalic", 8: "liberator"), $key), sans-serif
+      font-size: map-get((1: 2.375em, 2: 2.625em, 3: 2.375em, 4: 2.375em, 5: 2.25em, 6: 2.75em, 7: 2.250em, 8: 2.375em), $key)
+      text-transform: map-get((2: uppercase, 5: uppercase), $key)
+      font-weight: map-get((2: 400, 6: 400, 7: 400), $key)
+.getTickets__headerSubtitleCount
+  @each $key in $themeKeys
+    .theme_#{$key} &
+      color: map-get((1: #FFCC33, 2: #fff, 3: #FCFFCC, 4: #fff, 5: #fff, 6: #FFFDF3, 7: #FFD1B2, 8: #fff), $key)
+
+.getTickets__buy
+  flex-shrink: 0
+  min-width: 24%
+  text-align: center
+  padding-left: 0.5em
+  background-position: left top
+  background-repeat: repeat-y
+  @each $key in $themeKeys
+    .theme_#{$key} &
+      background-image: url('./pictures/get_tickets/demo_ticket_#{$key}.png')
+      min-width: map-get((1: 24%, 2: 21%, 3: 24%, 4: 24%, 5: 24%, 6: 22%, 7: 23%, 8: 24%), $key)
+.getTickets__buyPrice
+  font-size: 1.375em
+  display: flex
+  justify-content: center
+  align-items: center
+  @each $key in $themeKeys
+    .theme_#{$key} &
+      color: map-get((1: #F36523, 2: #fff, 3: #DFED8D, 4: #E23487, 5: #339FE8, 6: #EE8562, 7: #e9476a, 8: #B0EDFF), $key)
+      font-family: map-get((1: 'liberator', 2: 'GearedSlab', 3: 'liberator', 4: 'liberator', 5: 'Kreon', 6: 'lobster', 7: 'PhilosopherItalic', 8: 'liberator'), $key), sans-serif
+      text-transform: map-get((2: uppercase, 5: uppercase), $key)
+      margin-bottom: map-get((1: 0.273em, 2: 0.545em, 3: 0.273em, 4: 0.273em, 5: 0.682em, 6: 0.682em, 7: 0.545em, 8: 0.455em), $key)
+.getTickets__buyPriceText
+  @each $key in $themeKeys
+    .theme_#{$key} &
+      margin-top: map-get((1: -0.273em, 2: 0.091em, 3: -0.273em, 4: -0.273em, 5: 0.364em, 6: 0.545em, 7: 0.364em, 8: -0.273em), $key)
+.getTickets__buyPriceAmount
+    font-size: 2.955em
+    @each $key in $themeKeys
+        .theme_#{$key} &
+            color: map-get((1: #FFEBA3, 2: #34B2AE, 3: #FCFFCC, 4: #fff, 5: #fff, 6: #FFFDF3, 7: #FFD1B2, 8: #fff), $key)
+            margin: map-get((1: (0 0.062em), 2: (-0.077em 0.062em 0.077em), 3: (0 0.062em), 4: (0 0.062em), 5: (-0.046em 0.062em 0), 6: (0 0.062em), 7: (0 0.062em), 8: (0 0.062em)), $key)
+            line-height: map-get((2: 0.8, 5: 0.8, 6: 0.8), $key)
+.getTickets__buyButton
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif
+  font-size: 0.875em
+  height: 2.286em
+  line-height: 2
+  white-space: nowrap
+  text-overflow: ellipsis
+  overflow: hidden
+  max-width: 100%
+  display: inline-block
+  background-position: center center
+  background-repeat: repeat-x
+  background-clip: content-box
+  text-transform: uppercase
+  position: relative
+  padding: 0 1.286em
+  text-decoration: none
+  transition-duration: 0.3s
+  &:after,&:before
+    content: ''
+    display: block
+    position: absolute
+    height: 100%
+    top: 0
+    bottom: 0
+    width: 1.286em
+    background-repeat: no-repeat
+  &:after
+    right: 0
+    background-position: left bottom
+  &:before
+    background-position: right top
+    left: 0
+  @each $key in $themeKeys
+    .theme_#{$key} &
+      &:after,&:before
+        background-image: url('./pictures/get_tickets/button_more_#{$key}.png')
+      background-image: url('./pictures/get_tickets/button_more_#{$key}.png')
+      color: map-get((1: #F36523, 2: #fff, 3: #57851F, 4: #fff, 5: #0061A4, 6: #BE592C, 7: #ee3056, 8: #178DC4), $key)
+      font-family: map-get((1: 'Kreon', 2: ("Trebuchet MS", Verdana, Arial), 3: (Georgia, "Times New Roman", Times, serif), 4: ("Lucida Grande", "Lucida Sans Unicode", Arial, Verdana), 5: 'DroidSans', 6: 'Kreon', 7: 'DroidSans', 8: 'Kreon'), $key), sans-serif
+      &:hover,&:active
+        color: map-get((1: #A33200, 2: #000, 3: #354620, 4: #FFCCDF, 5: #52B3F3, 6: #5E2B09, 7: #9F3944, 8: #0d3350), $key)

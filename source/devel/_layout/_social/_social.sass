@@ -1,6 +1,8 @@
 $social_width: em(68px)
 $social_height: $social_width
 $social_margin: $social_width / 3.4
+$themeKeys: 1, 2, 3, 4, 5, 6, 7, 8
+
 .social
 	display: flex
 	justify-content: center
@@ -19,7 +21,7 @@ $social_margin: $social_width / 3.4
 		background-size: 134%
 		width: $social_width * 0.75
 		height: $social_height * 0.75
-	@each $key in [1,2,3,4,5,6,7,8]
+	@each $key in $themeKeys
 		.theme_#{$key} &
 			background-image: url('./pictures/socialIcons/icons_social_#{$key}.png')
 	&+&
