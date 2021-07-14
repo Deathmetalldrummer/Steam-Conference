@@ -29,6 +29,7 @@ $themeKeys: 1, 2, 3, 4, 5, 6, 7, 8
       font-family: map-get((1: "Mensch", 2: "Mensch", 3: "Mensch", 4: "Mensch" ,5: "BebasRegular", 6: "BebasRegular", 7: "Ranger", 8: "BebasRegular"), $key), sans-serif
       font-size: map-get((1: 3.375em, 2: 3.375em, 3: 3.375em, 4: 3.375em, 5: 3.625em, 6: 3.625em, 7: 3.250em, 8: 3.625em), $key)
       font-weight: map-get((7: 400), $key)
+      line-height: map-get((5: 1, 6: 1, 7: 1, 8: 1), $key)
       margin-bottom: map-get((1: 0.111em, 2: -0.074em, 3: 0.111em, 4: 0.111em, 5: -0.086em, 6: -0.086em, 7: -0.038em, 8: 0.069em), $key)
 
 .getTickets__headerSubtitle
@@ -47,15 +48,16 @@ $themeKeys: 1, 2, 3, 4, 5, 6, 7, 8
 
 .getTickets__buy
   flex-shrink: 0
-  min-width: 24%
   text-align: center
-  padding-left: 0.5em
   background-position: left top
   background-repeat: repeat-y
+  padding-left: 2.125em
+  padding-right: 1.5em
   @each $key in $themeKeys
     .theme_#{$key} &
       background-image: url('./pictures/get_tickets/demo_ticket_#{$key}.png')
-      min-width: map-get((1: 24%, 2: 21%, 3: 24%, 4: 24%, 5: 24%, 6: 22%, 7: 23%, 8: 24%), $key)
+      padding-left: map-get((2: 1.875em), $key)
+      padding-right: map-get((2: 1.125em), $key)
 .getTickets__buyPrice
   font-size: 1.375em
   display: flex
@@ -66,7 +68,7 @@ $themeKeys: 1, 2, 3, 4, 5, 6, 7, 8
       color: map-get((1: #F36523, 2: #fff, 3: #DFED8D, 4: #E23487, 5: #339FE8, 6: #EE8562, 7: #e9476a, 8: #B0EDFF), $key)
       font-family: map-get((1: 'liberator', 2: 'GearedSlab', 3: 'liberator', 4: 'liberator', 5: 'Kreon', 6: 'lobster', 7: 'PhilosopherItalic', 8: 'liberator'), $key), sans-serif
       text-transform: map-get((2: uppercase, 5: uppercase), $key)
-      margin-bottom: map-get((1: 0.273em, 2: 0.545em, 3: 0.273em, 4: 0.273em, 5: 0.682em, 6: 0.682em, 7: 0.545em, 8: 0.455em), $key)
+      margin-bottom: map-get((1: 0.273em, 2: 0.545em, 3: 0.273em, 4: 0.273em, 5: 0.682em, 6: 0.682em, 7: 0.545em, 8: 0.255em), $key)
 .getTickets__buyPriceText
   @each $key in $themeKeys
     .theme_#{$key} &
@@ -77,7 +79,7 @@ $themeKeys: 1, 2, 3, 4, 5, 6, 7, 8
         .theme_#{$key} &
             color: map-get((1: #FFEBA3, 2: #34B2AE, 3: #FCFFCC, 4: #fff, 5: #fff, 6: #FFFDF3, 7: #FFD1B2, 8: #fff), $key)
             margin: map-get((1: (0 0.062em), 2: (-0.077em 0.062em 0.077em), 3: (0 0.062em), 4: (0 0.062em), 5: (-0.046em 0.062em 0), 6: (0 0.062em), 7: (0 0.062em), 8: (0 0.062em)), $key)
-            line-height: map-get((2: 0.8, 5: 0.8, 6: 0.8), $key)
+            line-height: map-get((2: 0.8, 5: 0.8, 6: 0.8, 7: 0.8), $key)
 .getTickets__buyButton
   font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif
   font-size: 0.875em
