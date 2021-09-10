@@ -25,7 +25,7 @@ const paths = {
 		src: [devel + '**/*.{sass,scss}', '!**/_*/**', '!**/_*'],
 		dest: build,
 		min: {
-			src: [build + '**/*.css', '!' + build + '**/*.min.css'],
+			src: [build + '**/*.css', '!**/*.min.css'],
 			dest: build
 		},
 	},
@@ -33,20 +33,30 @@ const paths = {
 		src: [devel + '**/*.js', '!**/_*/**', '!**/_*'],
 		dest: build,
 		min: {
-			src: [build + '**/*.js', '!' + build + '**/*.min.js'],
+			src: [build + '**/*.js', '!**/*.min.js'],
 			dest: build
 		},
+		libs: {
+			src: [
+				// './node_modules/jquery/dist/jquery.js',
+				// './node_modules/slick-carousel/slick/slick.js',
+				// './node_modules/jquery-validation/dist/jquery.validate.js',
+			],
+			dest: build + 'assets/libs/',
+			min: true,
+			single: true
+		}
 	},
 	img: {
-		src: devel + '**/_pictures/**/*.{png,jpg,svg}',
-		dest: build
+		src: devel + '**/_images/**/*.{png,jpg,svg}',
+		dest: build + 'assets/images/'
 	},
 	font: {
-		src: devel + '**/*.{woff,woff2,ttf}',
-		dest: build
+		src: devel + '_common/_fonts/**/*.{woff,woff2,ttf}',
+		dest: build + 'assets/fonts/'
 	},
 	other: {
-		src: [devel + '**/*.{json}', '!**/_*/**', '!**/_*'],
+		src: [devel + '**/*', '!**/_*/**', '!**/_*', '!**/*.{js,pug,jade,sass,scss}'],
 		dest: build
 	},
 	watch: {
@@ -55,7 +65,7 @@ const paths = {
 		js: devel + '**/*.js',
 		font: devel + '**/*.{woff,woff2,ttf}',
 		img: devel + '**/*.{png,jpg,svg}',
-		other: devel + '**/*.{json}',
+		other: [devel + '**/*', '!**/*.{pug,jade,sass,scss,js}', '!**/_*/**', '!**/_*'],
 		build: build + '**/*.{html,css,js}'
 	}
 
@@ -68,20 +78,20 @@ const prefix = {
 
 
 function includeJS(file) {
-	var slash_path = file.path.replace(/\\/g, '/');
-	var file_path = slash_path.slice(slash_path.indexOf(devel), slash_path.length);
+	const slash_path = file.path.replace(/\\/g, '/');
+	const file_path = slash_path.slice(slash_path.indexOf(devel), slash_path.length);
 
-	var str_from = '//#include("';
-	var str_to = '");';
+	const str_from = '//#include("';
+	const str_to = '");';
 
 	file.contents = Buffer.from(result_string(absolute_file(file_path)));
 }
 
 function result_string(string) {
-	var str_from = '//#include("';
-	var str_to = '");';
-	var arr = find_path(string);
-	for (var i = 0; i < arr.length; i++) {
+	const str_from = '//#include("';
+	const str_to = '");';
+	const arr = find_path(string);
+	for (let i = 0; i < arr.length; i++) {
 		string = string.replace(str_from + arr[i] + str_to, absolute_file(arr[i]));
 	}
 
@@ -91,16 +101,16 @@ function result_string(string) {
 }
 
 function find_path(string) {
-	var str_from = '//#include("';
-	var str_to = '");';
-	var arr = [];
+	const str_from = '//#include("';
+	const str_to = '");';
+	const arr = [];
 
 	if (string.indexOf(str_from) !== -1) getPath(str_from, str_to, 0);
 
 	function getPath(from, to, search) {
-		var substr_from = string.indexOf(from, search) + from.length;
-		var substr_to = string.indexOf(to, substr_from);
-		var res = string.slice(substr_from, substr_to);
+		const substr_from = string.indexOf(from, search) + from.length;
+		const substr_to = string.indexOf(to, substr_from);
+		const res = string.slice(substr_from, substr_to);
 		arr.push(res);
 		if (string.indexOf(from, substr_to) !== -1) {
 			getPath(from, to, substr_to);
@@ -110,9 +120,9 @@ function find_path(string) {
 }
 
 function absolute_file(some_path) {
-	var str_from = '//#include("';
-	var parent_folder = some_path.replace(some_path.slice(some_path.lastIndexOf('/') + 1, some_path.length), '').replace(devel, '');
-	var file_content = fs_.readFileSync(some_path, 'utf8');
+	const str_from = '//#include("';
+	const parent_folder = some_path.replace(some_path.slice(some_path.lastIndexOf('/') + 1, some_path.length), '').replace(devel, '');
+	let file_content = fs_.readFileSync(some_path, 'utf8');
 	file_content = file_content.replace(/\/\/#include\("/g, str_from + devel + parent_folder);
 	return file_content;
 }
@@ -171,22 +181,41 @@ function js_min() {
 		.pipe(dest(paths.js.min.dest))
 }
 
+function js_libs() {
+	const libsSrc = (!paths.js.libs.src || !paths.js.libs.src.length) ? '.' : paths.js.libs.src;
+	let stream = src(libsSrc)
+		.pipe(plumber_());
+
+	if (paths.js.libs.single) {
+		stream = stream
+			.pipe(concat_('libs.js'))
+	}
+
+	if (paths.js.libs.min) {
+		stream = stream
+			.pipe(uglify_())
+			.pipe(rename_({
+				suffix: '.min'
+			}))
+	}
+
+	return stream
+		.pipe(dest(paths.js.libs.dest));
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////
 //                                                              COPY
 ///////////////////////////////////////////////////////////////////////////////////////
 function copy_font() {
 	return src(paths.font.src)
-		.on('data',function(file){
-			replacePath(file,'_fonts/','fonts/');
-		})
 		.pipe(dest(paths.font.dest))
 }
 
 function copy_img() {
 	return src(paths.img.src)
 		.on('data', function(file) {
-			replacePath(file,'_pictures/','pictures/');
+			replaceImagePath(file,'_images/','');
 		})
 		.pipe(dest(paths.img.dest))
 }
@@ -196,12 +225,19 @@ function copy_other() {
 		.pipe(dest(paths.other.dest))
 }
 
-function replacePath(file,str,strTo) {
-	var filePath = file.path.replace(/\\/g,'/');
-	var picIndex = filePath.indexOf(str);
-	var develIndex = filePath.indexOf(devel);
-	var fromTo = filePath.slice(develIndex+devel.length,picIndex+str.length);
-	file.path = filePath.replace(fromTo,strTo);
+function replaceImagePath(file,str,strTo) {
+	const filePath = file.path.replace(/\\/g,'/');
+	const picIndex = filePath.indexOf(str);
+	const develIndex = filePath.indexOf(devel);
+	const fromTo = filePath.slice(develIndex+devel.length,picIndex+str.length);
+
+	const parent = fromTo.replace(str, '');
+	const parentToIndex = parent.lastIndexOf('/');
+	const parentFromIndex = parent.lastIndexOf('/', parentToIndex - 1) + 1;
+	let getParent = parent.slice(parentFromIndex, parentToIndex) + '/';
+	getParent = getParent[0] === '_' ? getParent.slice(1) : getParent;
+
+	file.path = filePath.replace(fromTo,strTo + getParent);
 }
 
 
@@ -209,7 +245,7 @@ function replacePath(file,str,strTo) {
 //                                                              CLEAN
 ///////////////////////////////////////////////////////////////////////////////////////
 async function clean() {
-	del_(build);
+	await del_(build);
 }
 
 
@@ -247,7 +283,7 @@ function watching() {
 
 const _pug = exports.pug = pug;
 const _sass = exports.sass = series(sass, css_min);
-const _js = exports.js = series(js, js_min);
+const _js = exports.js = series(js, js_min, js_libs);
 const _copy = exports.copy = parallel(copy_font, copy_img, copy_other);
 const _clean = exports.clean = clean;
 

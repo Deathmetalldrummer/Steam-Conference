@@ -1,5 +1,5 @@
 mixin footer()
-	footer.footer
+	footer.footer&attributes(attributes)
 		ul.footer__menu.footerMenu
 			-var footerMenu = {'Features': '#','Typography': '#','News': '#'}
 			each value,key in footerMenu
@@ -10,8 +10,8 @@ mixin footer()
 						| #{key}
 		.footer__info Built with HTML5 and CSS3
 			br
-			| Copyright © 2012 
+			| Copyright © 2012
 			a(href="#") YOOtheme
 			br
-			| Powered by 
+			| Powered by
 			a(href="#") Warp Theme Framework
