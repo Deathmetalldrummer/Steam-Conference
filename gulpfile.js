@@ -38,9 +38,9 @@ const paths = {
 		},
 		libs: {
 			src: [
-				'./node_modules/jquery/dist/jquery.js',
-				'./node_modules/slick-carousel/slick/slick.js',
-				'./node_modules/jquery-validation/dist/jquery.validate.js',
+				// './node_modules/jquery/dist/jquery.js',
+				// './node_modules/slick-carousel/slick/slick.js',
+				// './node_modules/jquery-validation/dist/jquery.validate.js',
 			],
 			dest: build + 'assets/libs/',
 			min: true,
@@ -48,8 +48,8 @@ const paths = {
 		}
 	},
 	img: {
-		src: devel + '**/_image/**/*.{png,jpg,svg}',
-		dest: build + 'assets/image/'
+		src: devel + '**/_images/**/*.{png,jpg,svg}',
+		dest: build + 'assets/images/'
 	},
 	font: {
 		src: devel + '_common/_fonts/**/*.{woff,woff2,ttf}',
@@ -182,7 +182,8 @@ function js_min() {
 }
 
 function js_libs() {
-	let stream = src(paths.js.libs.src)
+	const libsSrc = (!paths.js.libs.src || !paths.js.libs.src.length) ? '.' : paths.js.libs.src;
+	let stream = src(libsSrc)
 		.pipe(plumber_());
 
 	if (paths.js.libs.single) {
@@ -214,7 +215,7 @@ function copy_font() {
 function copy_img() {
 	return src(paths.img.src)
 		.on('data', function(file) {
-			replaceImagePath(file,'_image/','');
+			replaceImagePath(file,'_images/','');
 		})
 		.pipe(dest(paths.img.dest))
 }

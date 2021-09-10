@@ -70,7 +70,7 @@
 				font-size: $coef_round + em
 
 
-@function em($px, $fontSize: 16px)
+@function em($px, $fontSize: $defaultFontSize)
 	@if (unitless($px))
 		$px: $px * 1px
 	@if (unitless($fontSize))
