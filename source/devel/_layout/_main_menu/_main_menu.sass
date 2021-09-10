@@ -6,7 +6,7 @@
 	background-size: auto 71px
 	@each $key,$value in $menu_images
 		.theme_#{$key} &
-			background: url('./pictures/#{map-get($value, "left")}') top left no-repeat,url('./pictures/#{map-get($value, "right")}') top right no-repeat
+			background: url('./assets/images/#{map-get($value, "left")}') top left no-repeat,url('./assets/images/#{map-get($value, "right")}') top right no-repeat
 .mainMenu__list
 	list-style: none
 	padding: 0
@@ -20,7 +20,7 @@
 	background-repeat: repeat-x
 	@each $key,$value in $menu_images
 		.theme_#{$key} &
-			background-image: url('./pictures/#{map-get($value, "center")}')
+			background-image: url('./assets/images/#{map-get($value, "center")}')
 .mainMenu__
 	position: relative
 	display: inline-flex
@@ -44,7 +44,7 @@
 		.theme_#{$key} &item_active
 			color: map-get($value, 'active')
 	&+&
-		background: url('./pictures/menu_border.png') left center no-repeat
+		background: url('./assets/images/main_menu/menu_border.png') left center no-repeat
 		background-size: auto cover
 .mainMenu__icon
 	width: 25px

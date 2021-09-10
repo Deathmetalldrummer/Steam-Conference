@@ -5,4 +5,4 @@ $theme_name: (1: "orange", 2: "black", 3: "green", 4: "white", 5: "blue", 6: "be
 
 $theme_image: ()
 @each $key, $value in $theme
-	$theme_image: map-merge($theme_image, ($key: 'theme/theme_#{$key}.jpg'))
+	$theme_image: map-merge($theme_image, ($key: 'theme_control/theme_#{$key}.jpg'))

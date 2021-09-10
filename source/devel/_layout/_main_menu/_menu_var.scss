@@ -1,9 +1,9 @@
 $menu_images: ();
 @each $key, $value in $theme {
 	$menu_images: map-merge($menu_images, ($key: (
-		"left": 'menubar_themes/theme_#{$key}_left.png',
-		"center": 'menubar_themes/theme_#{$key}_center.png',
-		"right": 'menubar_themes/theme_#{$key}_right.png'
+		"left": 'main_menu/theme_#{$key}_left.png',
+		"center": 'main_menu/theme_#{$key}_center.png',
+		"right": 'main_menu/theme_#{$key}_right.png'
 	)));
 }
 

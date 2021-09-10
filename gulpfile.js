@@ -38,7 +38,7 @@ const paths = {
 		},
 		libs: {
 			src: [
-				// './node_modules/jquery/dist/jquery.js',
+				'./node_modules/jquery/dist/jquery.js',
 				// './node_modules/slick-carousel/slick/slick.js',
 				// './node_modules/jquery-validation/dist/jquery.validate.js',
 			],

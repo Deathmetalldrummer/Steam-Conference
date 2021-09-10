@@ -1,8 +1,8 @@
-- var homeSubmenu={type:'theme',menu:[{link:'#',text:'Orange',icon:'submenu_themes/icon_profile_1.png'},{link:'#',text:'Black',icon:'submenu_themes/icon_profile_2.png'},{link:'#',text:'Green',icon:'submenu_themes/icon_profile_3.png'},{link:'#',text:'White',icon:'submenu_themes/icon_profile_4.png'},{link:'#',text:'Blue',icon:'submenu_themes/icon_profile_5.png'},{link:'#',text:'Beige',icon:'submenu_themes/icon_profile_6.png'},{link:'#',text:'Pink',icon:'submenu_themes/icon_profile_7.png'},{link:'#',text:'Iceblue',icon:'submenu_themes/icon_profile_8.png'}]};
+- var homeSubmenu={type:'theme',menu:[{link:'#',text:'Orange',icon:'main_submenu/icon_profile_1.png'},{link:'#',text:'Black',icon:'main_submenu/icon_profile_2.png'},{link:'#',text:'Green',icon:'main_submenu/icon_profile_3.png'},{link:'#',text:'White',icon:'main_submenu/icon_profile_4.png'},{link:'#',text:'Blue',icon:'main_submenu/icon_profile_5.png'},{link:'#',text:'Beige',icon:'main_submenu/icon_profile_6.png'},{link:'#',text:'Pink',icon:'main_submenu/icon_profile_7.png'},{link:'#',text:'Iceblue',icon:'main_submenu/icon_profile_8.png'}]};
 - var widgetkitSubmenu={type:'default',menu:[{text:'SLIDESHOW',link:'#'},{text:'SLIDESET',link:'#'},{text:'GALLERY',link:'#'},{text:'MAP',link:'#'},{text:'ACCORDION',link:'#'},{text:'LIGHTBOX',link:'#'},{text:'SPOTLIGHT',link:'#'},{text:'TWITTER',link:'#'},{text:'MEDIA PLAYER',link:'#'}]};
 - var featuresSubmenu={type:'default',menu:[{link:'#',text:'Module variation'},{link:'#',text:'Typography'}]};
 - var joomlaSubmenu={type:'category',menu:[{title:'CONTENT',subtitle:'ALL COM_CONTENT VIEWS',menu:[{text:'FEATURED ARTICLES',link:'#'},{text:'LIST ALL CATEGORIES',link:'#'},{text:'CATEGORY LIST',link:'#'}]},{title:'CONTACT',subtitle:'ALL COM_CONTACT VIEWS',menu:[{text:'CONTACT CATEGORY',link:'#'},{text:'CONTACT ITEM',link:'#'}]},{title:'OTHER COMPONENTS',subtitle:'REMAINING COMPONENT VIEWS',menu:[{text:'LOGIN',link:'#'},{text:'REGISTRATION',link:'#'},{text:'REMIND',link:'#'},{text:'RESET',link:'#'}]}]}
-- var menu=[{title:"Home",subtitle:null,icon:null,submenu:homeSubmenu},{title:"Features",subtitle:null,icon:null,submenu:featuresSubmenu},{title:"widgetkit",subtitle:null,icon:null,submenu:widgetkitSubmenu},{title:"Icons",subtitle:null,icon:null,submenu:null},{title:"Joomla",subtitle:'Subtitle position',icon:{src:"joomla.svg",alt:"joomla"},submenu:joomlaSubmenu},{title:"Login",subtitle:'Speak, friend, and enter',icon:null,submenu:null}];
+- var menu=[{title:"Home",subtitle:null,icon:null,submenu:homeSubmenu},{title:"Features",subtitle:null,icon:null,submenu:featuresSubmenu},{title:"widgetkit",subtitle:null,icon:null,submenu:widgetkitSubmenu},{title:"Icons",subtitle:null,icon:null,submenu:null},{title:"Joomla",subtitle:'Subtitle position',icon:{src:"main_menu/joomla.svg",alt:"joomla"},submenu:joomlaSubmenu},{title:"Login",subtitle:'Speak, friend, and enter',icon:null,submenu:null}];
 
 mixin mainMenu()
 	nav.mainMenu
@@ -11,7 +11,7 @@ mixin mainMenu()
 				li.mainMenu__(class=(i === 0) ? 'mainMenu__item_active':'')
 					if item.icon
 						.mainMenu__icon
-							img(src="./pictures/"+item.icon.src alt=item.icon.alt)
+							img(src="./assets/images/"+item.icon.src alt=item.icon.alt)
 					.mainMenu__titlePosition(class=(item.icon || item.subtitle) ? 'mainMenu__titlePosition_align': '')
 						if item.title
 							.mainMenu__title

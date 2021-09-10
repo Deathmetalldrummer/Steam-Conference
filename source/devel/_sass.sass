@@ -1,39 +1,39 @@
 @import "./_common/_common"
 @import "./_layout/_mounting"
 
-+font("Mensch", $fileName: "mensch-inline")
-+font("Ranger", $fileName: "ranger")
-+font("BebasRegular", $path: './fonts/bebasneue/', $fileName: "bebasneueregular")
-+font("DroidSans")
++font("Mensch", "./assets/fonts/mensch-inline")
++font("Ranger", "./assets/fonts/ranger")
++font("BebasRegular", "./assets/fonts/bebasneue/bebasneueregular")
++font("DroidSans", "./assets/fonts/DroidSans")
 // +font("DroidSans-Bold")
 
-+font("Kreon", $fileName: "Kreon-Regular")
++font("Kreon", "./assets/fonts/Kreon-Regular")
 // +font("Kreon-Bold")
 // +font("Kreon-Light")
 // +font("Kreon-Medium")
 // +font("Kreon-SemiBold")
 
-+font("Lucida Grande", $fileName: "LucidaGrande")
++font("Lucida Grande", "./assets/fonts/LucidaGrande")
 // +font("LucidaGrande-Bold")
 
-+font("Trebuchet MS",$fileName: "TrebuchetMS")
++font("Trebuchet MS", "./assets/fonts/TrebuchetMS")
 // +font("Trebuchet-BoldItalic")
 // +font("TrebuchetMS-Bold")
 // +font("TrebuchetMS-Italic")
 
-+font("GearedSlab", $fileName: 'gearedslab')
++font("GearedSlab", "./assets/fonts/gearedslab")
 // +font("gearedslab-light")
 // +font("gearedslab-bold")
 // +font("gearedslab-extrabold")
 
-+font("liberator")
++font("liberator", "./assets/fonts/liberator")
 
-+font("lobster")
++font("lobster", "./assets/fonts/lobster")
 
-+font("Philosopher", $fileName: "philosopher-regular")
++font("Philosopher", "./assets/fonts/philosopher-regular")
 // +font("philosopher-bold")
 // +font("philosopher-bolditalic")
-+font('PhilosopherItalic', $fileName: "philosopher-italic")
++font("PhilosopherItalic", "./assets/fonts/philosopher-italic")
 
 $bg_texture_width: 90vw
 $bg_texture_height: ($bg_texture_width / 1.33)
@@ -48,13 +48,13 @@ body
 			// TODO: need refactoring
 			$texture: none
 			$texture_size: auto
-			$texture2: url('./pictures/texture/#{$key}_page_gradient_dark.svg') 50% 0 fixed no-repeat
+			$texture2: url('./assets/images/texture/#{$key}_page_gradient_dark.svg') 50% 0 fixed no-repeat
 			$texture2_size: 210% 400%
 			@if ($key == 7 or $key == 5)
-				$texture: url('./pictures/texture/#{$key}_page_texture.png') top center no-repeat
+				$texture: url('./assets/images/texture/#{$key}_page_texture.png') top center no-repeat
 				$texture_size: auto
 			background-color: $value
-			background: $texture,$texture2, url('./pictures/texture/#{$key}_page_gradient_light.svg') center $bg_texture_pos no-repeat , url('./pictures/#{map-get($theme_image, $key)}') center center repeat
+			background: $texture,$texture2, url('./assets/images/texture/#{$key}_page_gradient_light.svg') center $bg_texture_pos no-repeat , url('./assets/images/#{map-get($theme_image, $key)}') center center repeat
 			background-size: $texture_size,$texture2_size, $bg_texture_width $bg_texture_height, auto
 *
 	box-sizing: border-box

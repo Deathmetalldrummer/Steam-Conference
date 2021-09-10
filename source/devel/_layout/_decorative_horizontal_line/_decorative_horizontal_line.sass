@@ -21,7 +21,7 @@
 .DHL__stars
 	@each $key,$value in $hr
 		.theme_#{$key} &
-			content: url('./pictures/' + map-get($value, 'star'))
+			content: url('./assets/images/decorative_horizontal_line/' + map-get($value, 'star'))
 .DHL__text
 	line-height: 1.2
 	text-align: center
@@ -46,4 +46,4 @@
 	@each $key,$value in $hr
 		.theme_#{$key} &:before
 			display: block
-			content: url('./pictures/' + map-get($value, 'scroller'))
+			content: url('./assets/images/decorative_horizontal_line/' + map-get($value, 'scroller'))
