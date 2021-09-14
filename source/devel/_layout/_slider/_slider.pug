@@ -1,0 +1,27 @@
+mixin slider()
+    .slider&attributes(attributes)
+        h2.slider__header
+            span.slider__headerText The speakers
+        .slider__listsWrap
+            .slider__lists
+                ul.slider__list.slider__list_active
+                    li.slider__item
+                        img(src='./assets/images/slider/speakers/silvana.jpg').slider__image
+                    li.slider__item
+                        img(src='./assets/images/slider/speakers/teso_1.jpg').slider__image
+                    li.slider__item
+                        img(src='./assets/images/slider/speakers/teso_2.jpg').slider__image
+                    li.slider__item
+                        img(src='./assets/images/slider/speakers/teso_3.jpg').slider__image
+                    li.slider__item
+                        img(src='./assets/images/slider/speakers/gimli.jpg').slider__image
+                    li.slider__item
+                        img(src='./assets/images/slider/speakers/elrond.jpg').slider__image
+                    li.slider__item
+                        img(src='./assets/images/slider/speakers/frodo.jpg').slider__image
+            .slider__navButton.slider__navButton_left
+                svg(viewBox='0 0 98.148 98.148').slider__navButtonIcon
+                    path(d='M64.691,0.587L17.617,47.659c-0.75,0.75-0.75,2.078,0,2.828l47.076,47.076c0.375,0.375,0.883,0.586,1.414,0.586 c0.529,0,1.039-0.211,1.414-0.586l12.986-12.987c0.391-0.391,0.586-0.901,0.586-1.414c0-0.512-0.195-1.022-0.586-1.414 L47.834,49.073l32.672-32.674c0.752-0.75,0.75-2.078,0-2.828L67.52,0.587C66.738-0.195,65.473-0.195,64.691,0.587z')
+            .slider__navButton.slider__navButton_right
+                svg(viewBox='-248 371.7 98.1 98.1').slider__navButtonIcon
+                    path(d='M-214.5,469.3l47.1-47.1c0.8-0.8,0.8-2.1,0-2.8l-47.1-47.1c-0.4-0.4-0.9-0.6-1.4-0.6c-0.5,0-1,0.2-1.4,0.6l-13,13 c-0.4,0.4-0.6,0.9-0.6,1.4c0,0.5,0.2,1,0.6,1.4l32.7,32.7l-32.7,32.7c-0.8,0.8-0.8,2.1,0,2.8l13,13 C-216.6,470.1-215.3,470.1-214.5,469.3z')

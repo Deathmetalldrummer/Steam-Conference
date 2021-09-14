@@ -15,3 +15,5 @@
 //#include("./_text_date/_text_date.js");
 
 //#include("./_get_tickets/_get_tickets.js");
+
+//#include("./_slider/_slider.js");
