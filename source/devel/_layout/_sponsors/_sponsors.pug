@@ -1,2 +1,8 @@
 mixin sponsors()
-    .sponsors&attributes(attributes)
+    .sponsors__wrap&attributes(attributes)
+        .sponsors
+            each item in [1, 2, 3]
+                if item !== 1
+                    +DL.sponsors__line
+                a(href="#").sponsors__link
+                    img.sponsors__img(alt="sponsors", data-src=`logo${item}`, src=`./assets/images/sponsors/logo${item}_theme_1.png`)
