@@ -17,3 +17,8 @@
 //#include("./_get_tickets/_get_tickets.js");
 
 //#include("./_slider/_slider.js");
+
+//#include("./_title/_title.js");
+//#include("./_schedule/_schedule.js");
+//#include("./_sponsors/_sponsors.js");
+//#include("./_location/_location.js");
