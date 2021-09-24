@@ -1,26 +1,28 @@
 extends ./_html
 
 block body
-	+themes()
-	+social()
-		+logo()
-	+mainMenu()
-	.gridBox
-		.gridCell
-			+title('Location')
-			+location
-		.gridCell
-			+title('Schedule')
-			+schedule
-		.gridCell
-			+title('Sponsors')
-			+sponsors
-	+DHL('text', 'London, United Kingdom')
-	+slider()
-	+textDate()
-	+DHL('stars')
-	+tech()
-	+DHL('text', 'This is awesome Decorative Horizontal Line')
-	+getTickets()
-	+DHL('to top')
-	+footer()
+	.box
+		+themes()
+		+social()
+			+logo()
+		+mainMenu()
+		+DHL('text', 'London, United Kingdom')
+		+textDate()
+		+DHL('stars')
+		+tech()
+		+slider()
+		//+DHL('text', 'This is awesome Decorative Horizontal Line')
+		+DHL('stars')
+		.gridBox
+			.gridCell
+				+title('Location')
+				+location
+			.gridCell
+				+title('Schedule')
+				+schedule
+			.gridCell
+				+title('Sponsors')
+				+sponsors
+		+getTickets()
+		+DHL('to top')
+		+footer()
