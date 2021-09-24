@@ -1,2 +1,108 @@
+-
+    var schedule = [
+        {
+            day: 'Friday',
+            list: [
+                {
+                    title: 'Registration',
+                    subtitle: 'The Conference Team',
+                    timeFrom: '08:00',
+                    timeTo: '09:00'
+                },
+                {
+                    title: 'Welcome & breakfast',
+                    subtitle: 'The Conference Team',
+                    timeFrom: '09:30',
+                    timeTo: '11:00'
+                },
+                {
+                    title: 'CSS3 animations',
+                    subtitle: 'Matt Aalhuis',
+                    timeFrom: '11:30',
+                    timeTo: '15:00'
+                },
+                {
+                    title: 'HTML5 canvas & WEBGL',
+                    subtitle: 'Kenny Mc Cormick',
+                    timeFrom: '15:00',
+                    timeTo: '18:00'
+                },
+            ]
+        },
+        {
+            day: 'saturday',
+            list: [
+                {
+                    title: 'Brunch & special event',
+                    subtitle: 'Conference Team',
+                    timeFrom: '10:00',
+                    timeTo: '13:00'
+                },
+                {
+                    title: 'Jquery plugins 2012',
+                    subtitle: 'Wendy Testerburger',
+                    timeFrom: '13:00',
+                    timeTo: '16:00'
+                },
+                {
+                    title: 'Ruby on rails',
+                    subtitle: 'Arthur Spooner',
+                    timeFrom: '16:00',
+                    timeTo: '18:00'
+                },
+                {
+                    title: 'Party night',
+                    subtitle: 'All party people',
+                    timeFrom: '18:00',
+                    timeTo: '23:00'
+                },
+            ]
+        },
+        {
+            day: 'Sunday',
+            list: [
+                {
+                    title: 'UI/UX Design',
+                    subtitle: 'Jesse Williams',
+                    timeFrom: '10:00',
+                    timeTo: '14:00'
+                },
+                {
+                    title: 'Webdesign trends 2012',
+                    subtitle: 'Steven Taylor',
+                    timeFrom: '14:30',
+                    timeTo: '16:00'
+                },
+                {
+                    title: 'Responsive design',
+                    subtitle: 'Roger Forrester',
+                    timeFrom: '16:30',
+                    timeTo: '18:00'
+                },
+                {
+                    title: 'Chill out and party',
+                    subtitle: 'All party people',
+                    timeFrom: '18:00',
+                    timeTo: '00:00'
+                },
+            ]
+        },
+    ];
 mixin schedule()
     .schedule&attributes(attributes)
+        ul.schedule__nav
+            each value, index in schedule
+                li.schedule__navItem(class= index === 1 ?'schedule__navItem_active':'')= value.day
+        .schedule__main
+            each value, index in schedule
+                ul.schedule__mainList(class= index === 1 ?'schedule__mainList_active':'')
+                    each val in value.list
+                        li.schedule__mainItem
+                            .schedule__mainItemLeft
+                                .schedule__title= val.title
+                                .schedule__subtitle= val.subtitle
+                            .schedule__mainItemRight
+                                .schedule__time
+                                    | #{val.timeFrom}
+                                    br
+                                    | #{val.timeTo}

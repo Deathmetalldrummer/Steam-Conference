@@ -1,0 +1,261 @@
+.schedule
+  font-size: 1rem
+.schedule__nav
+  margin: 0 0 0.7em
+  padding: 0
+  list-style: none
+  display: flex
+  flex-flow: row wrap
+  justify-content: center
+  align-items: center
+.schedule__navItem
+  cursor: pointer
+  padding: 0.24em 0.72em
+  border-radius: 0.125em
+  margin: 0 0.3em 0.3em 0
+  text-transform: uppercase
+  font-size: 0.875em
+  &_active
+    text-shadow: none
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1)
+
+.schedule__main
+  overflow: hidden
+  position: relative
+.schedule__mainList
+  position: absolute
+  display: none
+  top: 0
+  list-style: none
+  padding: 0 0.5em
+  margin: 0
+
+  &_active
+    display: block
+    position: relative
+.schedule__mainItem
+  display: flex
+  flex-flow: row nowrap
+  align-items: start
+  background-size: auto
+  background-position: top left
+  background-repeat: repeat-x
+  padding: 1em 0 0.7em
+.schedule__mainItemLeft
+  flex-grow: 1
+.schedule__mainItemRight
+  flex-shrink: 0
+
+.schedule__title
+  text-transform: uppercase
+.schedule__subtitle
+.schedule__time
+  padding: 0.2em 0.6em 0.2em 0.4em
+  border-radius: 0.3em
+  margin-left: 0.5em
+  box-shadow: 1px 2px 0 rgba(0, 0, 0, 0.1)
+  //text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4)
+  text-shadow: none
+  font-size: 0.688em
+  font-family: Arial, sans-serif
+
+@each $val in 1, 2, 3, 4, 5, 6, 7, 8
+  .theme_#{$val}
+    .schedule__mainItem + .schedule__mainItem
+      background-image: url("./assets/images/schedule/list_line_#{$val}.png")
+
+
+.theme
+  &_1
+    .schedule__navItem
+      color: #661F00
+      font-family: "Kreon", sans-serif
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1)
+      &:not(.schedule__navItem_active):hover
+        color: #FFCC33
+        text-shadow: 0 2px 0 rgba(0, 0, 0, 0.15)
+      &_active
+        background-color: #FFCC33
+        color: #F36523
+    .schedule__title
+      color: #FFEBA3
+      font-size: 1.25em
+      font-family: "liberator", sans-serif
+      line-height: 0.9
+    .schedule__subtitle
+      color: #FFCC33
+      font-size: 1em
+      font-family: "Kreon", sans-serif
+    .schedule__time
+      background-color: #661F00
+      color: #F36523
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4)
+  &_2
+    .schedule__navItem
+      color: #666
+      font-family: "Trebuchet MS", Verdana, Arial, sans-serif
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2)
+      &:not(.schedule__navItem_active):hover
+        color: #afafaf
+        text-shadow: 0 2px 0 rgba(0, 0, 0, 0.15)
+      &_active
+        background-color: #34B2AE
+        color: #fff
+    .schedule__title
+      color: #34B2AE
+      font-size: 1.375em
+      font-family: "GearedSlab", sans-serif
+      padding: 0
+      line-height: 1.1
+    .schedule__subtitle
+      color: #afafaf
+      font-size: 0.938em
+      font-family: "Trebuchet MS", Verdana, Arial, sans-serif
+    .schedule__time
+      background-color: #585858
+      color: #fff
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4)
+  &_3
+    .schedule__navItem
+      color: #FCFFCC
+      font-family: Georgia, "Times New Roman", Times, serif
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1)
+      &:not(.schedule__navItem_active):hover
+        color: #333
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2)
+      &_active
+        background-color: #D8E7A4
+        color: #354620
+    .schedule__title
+      color: #D8E7A4
+      font-size: 1.25em
+      font-family: "liberator", sans-serif
+      line-height: 1.1
+    .schedule__subtitle
+      color: #FCFFCC
+      font-size: 0.938em
+      font-family: Georgia, "Times New Roman", Times, serif
+    .schedule__time
+      background-color: #D8E7A4
+      color: #57851F
+  &_4
+    .schedule__navItem
+      color: #666
+      font-family: "Lucida Grande", Arial, Verdana, sans-serif
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2)
+      &:not(.schedule__navItem_active):hover
+          color: #333
+          text-shadow: 0 2px 0 rgba(0, 0, 0, 0.15)
+      &_active
+        background-color: #E23487
+        color: #fff
+    .schedule__title
+      color: #E23487
+      font-size: 1.25em
+      font-family: "liberator", sans-serif
+      line-height: 0.9
+    .schedule__subtitle
+      color: #666
+      font-size: 0.938em
+      font-family: "Lucida Grande", Arial, Verdana, sans-serif
+    .schedule__time
+      background-color: #fff
+      color: #666
+  &_5
+    .schedule__navItem
+      color: #fff
+      font-family: "DroidSans", sans-serif
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1)
+      &:not(.schedule__navItem_active):hover
+        color: #333
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2)
+      &_active
+        background-color: #CCEBFF
+        color: #003E66
+    .schedule__title
+      color: #CCEBFF
+      font-size: 1.188em
+      font-family: "Kreon", sans-serif
+      padding-top: 0
+      line-height: 1.1
+    .schedule__subtitle
+      color: #fff
+      font-size: 0.938em
+      font-family: "DroidSans", sans-serif
+    .schedule__time
+      background-color: #CCEBFF
+      color: #339FE8
+  &_6
+    .schedule__navItem
+      color: #8C8475
+      font-family: "Kreon", sans-serif
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4)
+      &:not(.schedule__navItem_active):hover
+        color: #333
+        text-shadow: 0 2px 0 rgba(255, 255, 255, 0.5)
+      &_active
+        background-color: #BE592C
+        color: #fff
+    .schedule__title
+      color: #BE592C
+      font-size: 1.375em
+      font-family: "lobster", sans-serif
+      text-transform: capitalize
+      line-height: 0.9
+    .schedule__subtitle
+      color: #8C8475
+      font-size: 1em
+      font-family: "Kreon", sans-serif
+    .schedule__time
+      background-color: #FFFDF3
+      color: #8C8475
+  &_7
+    .schedule__navItem
+      color: #FFD1B2
+      font-family: "DroidSans", sans-serif
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1)
+      &:not(.schedule__navItem_active):hover
+        color: #580012
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2)
+      &_active
+        background-color: #FF8F89
+        color: #9F3944
+    .schedule__title
+      color: #FF8F89
+      font-size: 1.188em
+      font-family: "Philosopher", sans-serif
+      text-transform: capitalize
+    .schedule__subtitle
+      color: #FFD1B2
+      font-size: 0.938em
+      font-family: "DroidSans", sans-serif
+    .schedule__time
+      background-color: #FF8F89
+      color: #9F3944
+  &_8
+    .schedule__navItem
+      color: #1F4E72
+      font-family: "Kreon", sans-serif
+      text-shadow: 0 1px 0 rgba(0, 107, 138, 0.1)
+      &:not(.schedule__navItem_active):hover
+        color: #178DC4
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2)
+      &_active
+        background-color: #178DC4
+        color: #fff
+    .schedule__title
+      color: #178DC4
+      font-size: 1.25em
+      font-family: "liberator", sans-serif
+      line-height: 0.9
+    .schedule__subtitle
+      color: #1F4E72
+      font-size: 1em
+      font-family: "Kreon", sans-serif
+    .schedule__time
+      background-color: #178DC4
+      color: #fff
+      box-shadow: 1px 2px 0 rgba(0, 107, 138, 0.1)
+      text-shadow: none
+
+
